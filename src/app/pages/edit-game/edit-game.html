@@ -1,0 +1,30 @@
+<div class="edit-game-page" *ngIf="!loading; else loadingTpl">
+  <!-- <button class="back-btn" (click)="goBack()">⬅ กลับ</button> -->
+  <h1>แก้ไขข้อมูลเกม</h1>
+
+  <form (ngSubmit)="saveGame()">
+    <div class="image-section">
+      <img [src]="imageUrl" alt="Game Image" class="preview-image" (click)="fileInput.click()">
+      <input type="file" #fileInput hidden (change)="onFileSelected($event)">
+      <p class="change-text" (click)="fileInput.click()">เปลี่ยนรูปภาพ</p>
+    </div>
+
+    <label>ชื่อเกม</label>
+    <input type="text" [(ngModel)]="game.title" name="title" required>
+
+    <label>ประเภท</label>
+    <input type="text" [(ngModel)]="game.category" name="category">
+
+    <label>ราคา</label>
+    <input type="number" [(ngModel)]="game.price" name="price">
+
+    <label>รายละเอียด</label>
+    <textarea [(ngModel)]="game.description" name="description"></textarea>
+
+    <button type="submit">💾 บันทึกการแก้ไข</button>
+  </form>
+</div>
+
+<ng-template #loadingTpl>
+  <p>⏳ กำลังโหลดข้อมูลเกม...</p>
+</ng-template>

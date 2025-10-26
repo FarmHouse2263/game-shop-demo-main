@@ -1,0 +1,32 @@
+<div class="login-page">
+  <header class="header">
+    <h1 class="logo">GAME SHOP</h1>
+  </header>
+
+  <main class="login-content">
+    <div class="login-container">
+      <div class="game-icon">
+        <img src="https://raw.githubusercontent.com/FarmHouse2263/imageGameShop/refs/heads/main/Xbox%20Controller.png" alt="Game Controller">
+      </div>
+
+      <h2>LOGIN</h2>
+      <p class="subtitle">Enter your email & password to sign up</p>
+
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+
+      <form (ngSubmit)="login()">
+        <input type="email" [(ngModel)]="email" name="email" placeholder="email@domain.com" required>
+        <input type="password" [(ngModel)]="password" name="password" placeholder="password" required>
+        <button type="submit" [disabled]="loading">
+          {{ loading ? 'Signing in...' : 'Sign up' }}
+        </button>
+      </form>
+
+      <p class="register-link">
+        dont have any account ? <a routerLink="/register">Register Here.</a>
+      </p>
+    </div>
+  </main>
+</div>
+

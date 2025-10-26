@@ -1,0 +1,145 @@
+/* --- การตั้งค่าพื้นฐานสำหรับหน้า --- */
+:host {
+  display: block;
+  background-color: #201d3a;
+  font-family: 'Kanit', sans-serif;
+  min-height: 100vh;
+  color: #ffffff;
+  padding: 2rem;
+}
+
+/* --- Container หลัก จัดเนื้อหาให้อยู่กึ่งกลาง --- */
+.game-detail-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* --- แถบเมนูด้านบน (ปุ่มกลับและตะกร้า) --- */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.top-bar button {
+  background-color: #3b3762;
+  color: #c0bde8;
+  border: 1px solid #5a5585;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: 'Kanit', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.top-bar button:hover {
+  background-color: #4a457a;
+  color: #ffffff;
+}
+
+/* --- การ์ดแสดงรายละเอียดเกมทั้งหมด --- */
+.game-detail-card {
+  background-color: #3b3762;
+  border-radius: 15px;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: minmax(300px, 400px) 1fr; /* คอลัมน์ซ้ายสำหรับรูป, ขวาสำหรับข้อมูล */
+  gap: 2rem 2.5rem; /* ระยะห่างระหว่างแถวและคอลัมน์ */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* --- ส่วนรูปภาพเกม --- */
+.game-image {
+  grid-row: 1 / 4; /* ทำให้รูปภาพกินพื้นที่ 3 แถวในแนวตั้ง */
+}
+
+.game-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5; /* ทำให้รูปมีสัดส่วนคงที่ */
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* --- ส่วนข้อมูลเบื้องต้น (ชื่อ, ราคา, ประเภท) --- */
+.game-info {
+  align-self: start; /* จัดให้อยู่ด้านบนของพื้นที่ */
+}
+
+.game-info h1 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+.game-info p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #c0bde8;
+}
+
+/* เน้นราคาให้เด่น */
+.game-info p:nth-child(2) {
+  font-size: 1.5rem;
+  color: #2cb67d; /* สีเขียว */
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+/* --- ส่วนรายละเอียดเกม --- */
+.game-description h2 {
+  margin-top: 0;
+  border-bottom: 1px solid #5a5585;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.game-description p {
+  line-height: 1.7;
+  color: #e0e0e0;
+}
+
+/* --- ปุ่มเพิ่มลงตะกร้า (ปุ่มหลัก) --- */
+.game-detail-card > button {
+  background-color: #2cb67d;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  align-self: end; /* จัดให้อยู่ด้านล่างสุด */
+}
+
+.game-detail-card > button:hover {
+  background-color: #26a36f;
+}
+
+.game-detail-card > button:active {
+  transform: scale(0.98);
+}
+
+
+
+/* --- Responsive สำหรับจอเล็ก --- */
+@media (max-width: 800px) {
+  .game-detail-card {
+    grid-template-columns: 1fr; /* เปลี่ยนเป็น 1 คอลัมน์ */
+  }
+
+  .game-image {
+    grid-row: auto; /* คืนค่าการจัดเรียงแถว */
+    aspect-ratio: 16 / 9; /* ปรับสัดส่วนรูปให้เหมาะกับแนวนอน */
+  }
+
+  .game-detail-card > button {
+    margin-top: 1rem;
+  }
+}

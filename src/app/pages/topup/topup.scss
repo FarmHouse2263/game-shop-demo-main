@@ -1,0 +1,171 @@
+/* --- การตั้งค่าพื้นฐาน --- */
+:host {
+  display: block;
+  background-color: #3b3762; /* สีพื้นหลังหลักของทั้งหน้า */
+  font-family: 'Kanit', sans-serif; /* แนะนำให้ใช้ฟอนต์นี้ */
+  min-height: 100vh;
+  color: #ffffff;
+}
+
+/* --- Container หลัก จัดวางเนื้อหาให้อยู่กึ่งกลาง --- */
+.topup-page-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* --- ส่วนข้อมูลผู้ใช้ (User Info Bar) --- */
+.user-info-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  padding: 1.5rem 0;
+}
+
+.user-avatar-group {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.avatar-box {
+  width: 90px;
+  height: 90px;
+  background-color: #201d3a;
+  border: 2px solid #5a5585;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #c0bde8;
+  font-size: 3rem;
+  overflow: hidden; /* สำหรับรูปภาพ */
+}
+
+.avatar-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ทำให้รูปภาพเต็มกรอบโดยไม่เสียสัดส่วน */
+}
+
+.user-details h2 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.75rem;
+}
+
+.user-details p {
+  margin: 0;
+  color: #c0bde8;
+}
+
+.user-details .balance {
+  color: #2cb67d; /* สีเขียว */
+  font-weight: 600;
+}
+
+/* --- กล่องเนื้อหาการเติมเงิน --- */
+.topup-content-box {
+  background-color: #201d3a; /* สีม่วงเข้มเกือบดำ */
+  border-radius: 12px;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.topup-content-box h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+}
+
+/* --- Input สำหรับใส่จำนวนเงิน --- */
+.amount-input-group {
+  margin-bottom: 2rem;
+}
+
+.amount-input-group label {
+  display: block;
+  color: #c0bde8;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.amount-input-group input {
+  background: none;
+  border: none;
+  border-bottom: 2px solid #5a5585;
+  color: #ffffff;
+  font-size: 2rem;
+  text-align: center;
+  width: 200px;
+  padding: 0.5rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.amount-input-group input:focus {
+  border-bottom-color: #c0bde8;
+}
+
+/* ซ่อนลูกศรของ input[type=number] */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* --- ปุ่มเลือกจำนวนเงินด่วน --- */
+.preset-amounts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* ทำให้ปุ่มปรับตามขนาดจอ */
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto 2.5rem auto;
+}
+
+.preset-amounts button {
+  background-color: #3b3762;
+  color: #c0bde8;
+  border: 1px solid #5a5585;
+  border-radius: 8px;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-family: 'Kanit', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.preset-amounts button:hover {
+  background-color: #4a457a;
+  color: #ffffff;
+  border-color: #8e8ac1;
+}
+
+/* --- ปุ่มยืนยันการเติมเงิน --- */
+.submit-btn {
+  background-color: #2cb67d;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  max-width: 300px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 15px rgba(44, 182, 125, 0.2);
+}
+
+.submit-btn:hover {
+  background-color: #26a36f;
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+}

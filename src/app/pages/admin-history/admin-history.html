@@ -1,0 +1,109 @@
+<!-- HTML Template -->
+<div class="admin-history-page">
+  <header class="admin-header">
+    <div class="header-container">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6 2c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6H6zm7 7V3.5L18.5 9H13z"/>
+        </svg>
+        <span>ระบบจัดการสำหรับผู้ดูแล</span>
+      </div>
+      <nav class="nav-menu">
+        <a href="#" class="nav-item">จัดการเกม</a>
+        <a href="#" class="nav-item">จัดการใช้คล่วงลด</a>
+        <a href="#" class="nav-item active">ประวัติธุรกรรม</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <div class="page-header">
+      <h1>ประวัติธุรกรรมทั้งหมด</h1>
+    </div>
+
+    <!-- User Selection -->
+    <div class="user-selection">
+      <label for="userSelect">เลือกผู้ใช้:</label>
+      <select id="userSelect" (change)="selectUser($any($event.target).value)">
+        <option value="">-- ทั้งหมด --</option>
+        <option *ngFor="let user of users" [value]="user.id">{{ user.name }} ({{ user.email }})</option>
+      </select>
+    </div>
+
+    <!-- Transaction Table -->
+    <div class="transaction-table-container" *ngIf="selectedUserId || allTransactions.length > 0">
+      <table class="transaction-table">
+        <thead>
+          <tr>
+            <th>วันที่/เวลา</th>
+            <th>รหัสใช้</th>
+            <th>ชื่อผู้ใช้</th>
+            <th>ประเภท</th>
+            <th>รายละเอียด</th>
+            <th>จำนวนเงิน</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Purchase History -->
+          <tr *ngFor="let purchase of purchaseHistory" class="transaction-row">
+            <td class="date-cell">
+              {{ purchase.purchasedAt?.toDate() | date:'yyyy-MM-dd' }}<br>
+              <span class="time">{{ purchase.purchasedAt?.toDate() | date:'HH:mm' }}</span>
+            </td>
+            <td>{{ purchase.userId }}</td>
+            <td>{{ purchase.userName || 'สมชาย โจดี' }}</td>
+            <td><span class="badge badge-purchase">ซื้อเกม</span></td>
+            <td class="detail-cell">{{ purchase.gameTitle }}</td>
+            <td class="amount-cell">{{ purchase.price }} บาท</td>
+          </tr>
+
+          <!-- Top-up History -->
+          <tr *ngFor="let topup of topupHistory" class="transaction-row">
+            <td class="date-cell">
+              {{ topup.createdAt?.toDate() | date:'yyyy-MM-dd' }}<br>
+              <span class="time">{{ topup.createdAt?.toDate() | date:'HH:mm' }}</span>
+            </td>
+            <td>{{ topup.userId }}</td>
+            <td>{{ topup.userName || 'สมชาย โจดี' }}</td>
+            <td><span class="badge badge-topup">เติมเงิน</span></td>
+            <td class="detail-cell">เติมเงินเข้าระบบ</td>
+            <td class="amount-cell positive">+{{ topup.amount }} บาท</td>
+          </tr>
+
+          <!-- No Data -->
+          <tr *ngIf="purchaseHistory.length === 0 && topupHistory.length === 0">
+            <td colspan="6" class="no-data">
+              <div class="empty-state">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" y1="8" x2="12" y2="12"/>
+                  <line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+                <p>ไม่พบข้อมูลธุรกรรม</p>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-container" *ngIf="!selectedUserId && allTransactions.length === 0">
+      <div class="empty-state-large">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 11l3 3L22 4"/>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+        </svg>
+        <h3>เลือกผู้ใช้เพื่อดูประวัติธุรกรรม</h3>
+        <p>กรุณาเลือกผู้ใช้จากรายการด้านบนเพื่อแสดงประวัติการทำธุรกรรม</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- ============================================ -->
+<!-- CSS Styles -->
+<!-- ============================================ -->
+<style>
+
+</style>

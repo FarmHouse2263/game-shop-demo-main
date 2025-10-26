@@ -1,0 +1,30 @@
+<div class="game-detail-container" *ngIf="game; else loading">
+  <div class="top-bar">
+    <button (click)="goBack()">← กลับ</button>
+    <button (click)="goToCart()">🛒 ตะกร้า</button>
+  </div>
+
+  <div class="game-detail-card">
+    <div class="game-image">
+      <img [src]="game.imageUrl" [alt]="game.title">
+    </div>
+
+    <div class="game-info">
+      <h1>{{ game.title }}</h1>
+      <p>ราคา: {{ game.price }} บาท</p>
+      <p>ประเภท: {{ game.category }}</p>
+      <p>วันที่วางขาย: {{ game.createdAt | date:'d MMMM yyyy':'':'th' }}</p>
+    </div>
+
+    <div class="game-description">
+      <h2>รายละเอียดเกม</h2>
+      <p>{{ game.description }}</p>
+    </div>
+
+    <button (click)="addToCart()">เพิ่มลงตะกร้า 🛒</button>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p>กำลังโหลดข้อมูลเกม...</p>
+</ng-template>

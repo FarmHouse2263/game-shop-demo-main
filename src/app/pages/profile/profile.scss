@@ -1,0 +1,229 @@
+/* --- การตั้งค่าพื้นฐานให้เต็มจอ --- */
+html, body {
+  height: 100%; /* ทำให้ html และ body สูงเต็มจอ */
+  margin: 0;
+  padding: 0;
+  background-color: #201d3a; /* สีพื้นหลังหลัก */
+  font-family: 'Kanit', sans-serif; /* แนะนำให้ใช้ฟอนต์นี้ */
+  color: #f0f0f0;
+}
+
+/* --- Container หลักสำหรับจัดกึ่งกลาง --- */
+.full-screen-container {
+  display: flex;
+  justify-content: center; /* จัดให้อยู่กึ่งกลางแนวนอน */
+  align-items: center;    /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #3b3762; /* ย้ายสีพื้นหลังหลักมาไว้ที่นี่ */
+}
+
+/* --- Profile Page Wrapper --- */
+.profile-page {
+  width: 100%;
+  max-width: 900px; /* กำหนดความกว้างสูงสุดของเนื้อหา */
+  display: flex; /* ใช้ flexbox ในการจัดวาง */
+}
+
+/* --- ส่วน Header (แถบเมนูด้านซ้าย) --- */
+header {
+  background: rgba(217, 217, 217, 1);
+  backdrop-filter: blur(10px);
+  padding: 15px 40px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  width: 45px;
+  height: 45px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.logo h1 {
+  color: rgba(75, 52, 132, 1);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #c0bde8;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+.back-btn:hover {
+  color: white;
+}
+
+/* --- กล่องโปรไฟล์หลัก (เนื้อหาด้านขวา) --- */
+.profile-box {
+  background-color: #201d3a; /* สีพื้นหลังของกล่องโปรไฟล์ */
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1; /* ทำให้กล่องนี้ขยายเต็มพื้นที่ที่เหลือ */
+}
+
+/* --- รูปโปรไฟล์ --- */
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #8e8ac1;
+  overflow: hidden;
+  cursor: pointer;
+  margin-bottom: 10px;
+  background-color: #3b3762;
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.change-text {
+  color: #c0bde8;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+.change-text:hover {
+  text-decoration: underline;
+}
+
+/* --- ฟอร์มและ Input --- */
+form {
+  width: 100%;
+  max-width: 450px; /* จำกัดความกว้างของฟอร์มให้ไม่กว้างเกินไป */
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="email"],
+input[type="text"],
+textarea {
+  background-color: #3b3762;
+  border: 1px solid #5a5585;
+  border-radius: 8px;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  color: #ffffff;
+  font-size: 16px;
+  font-family: 'Kanit', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #a09cb8;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #8e8ac1;
+  box-shadow: 0 0 5px rgba(142, 138, 193, 0.5);
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* --- กล่องแสดงยอดเงิน --- */
+.balance-box {
+  background-color: #3b3762;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.balance-box p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.balance-box strong {
+  color: #2cb67d; /* สีเขียว */
+}
+
+/* --- ปุ่มต่างๆ --- */
+button {
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  margin-top: 10px;
+  font-family: 'Kanit', sans-serif;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.history-btn {
+  background-color: transparent;
+  color: #c0bde8;
+  border: 2px solid #5a5585;
+  order: 1;
+}
+.history-btn:hover {
+  background-color: #5a5585;
+  color: white;
+}
+
+button[type="submit"] {
+  background-color: #7f5af0;
+  color: white;
+  order: 2;
+}
+button[type="submit"]:hover {
+  background-color: #6a49d8;
+}
+button[type="submit"]:disabled {
+  background-color: #5a5585;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.topup-btn {
+  background-color: #2cb67d;
+  color: white;
+  order: 3;
+}
+.topup-btn:hover {
+  background-color: #249d6b;
+}

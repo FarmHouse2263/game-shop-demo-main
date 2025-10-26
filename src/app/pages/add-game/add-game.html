@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เพิ่มเกมใหม่</title>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ gameId ? 'แก้ไขเกม' : 'เพิ่มเกมใหม่' }}</h1>
+
+        <div class="form-group">
+            <label>ชื่อเกม</label>
+            <input type="text" [(ngModel)]="title" placeholder="เช่น The Legend of Zelda">
+        </div>
+
+        <div class="form-group">
+            <label>ราคา</label>
+            <input type="number" [(ngModel)]="price" placeholder="เช่น 1999">
+        </div>
+
+        <div class="form-group">
+            <label>ประเภท</label>
+            <select [(ngModel)]="category">
+                <option value="">เลือกประเภท</option>
+                <option value="action">Action</option>
+                <option value="rpg">RPG</option>
+                <option value="puzzle">Puzzle</option>
+                <option value="sports">Sports</option>
+                <option value="adventure">Adventure</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>รูปภาพ</label>
+            <input type="file" (change)="onFileSelected($event)">
+            <div class="preview-container" *ngIf="imageUrl">
+                <p>Preview:</p>
+                <img alt="Preview" [src]="imageUrl">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>รายละเอียด</label>
+            <textarea [(ngModel)]="description" placeholder="บอกเล่าเกมนี้เกี่ยวกับอะไร..."></textarea>
+        </div>
+
+        <div class="form-actions">
+            <button (click)="saveGame()">{{ gameId ? 'บันทึกการแก้ไข' : 'เพิ่มเกม' }}</button>
+            <button (click)="cancelGame()">ยกเลิก</button>
+        </div>
+    </div>
+</body>
+</html>

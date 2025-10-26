@@ -1,0 +1,123 @@
+
+
+/* --- Main Edit Page Container --- */
+.edit-game-page {
+  max-width: 100%;
+//   margin: 2rem auto;
+  background-color: #3b3762;
+  padding: 2.5rem;
+//   border-radius: 15px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+}
+
+/* --- Form Styling --- */
+form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;       /* จัดกลางแนวนอน */
+}
+
+
+/* --- Image Upload Section --- */
+.image-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.preview-image {
+  width: 100%;
+  max-width: 300px;
+  height: 170px;
+  border-radius: 8px;
+  border: 2px dashed #5a5585;
+  object-fit: cover;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  background-color: #201d3a;
+  transition: border-color 0.3s ease;
+}
+
+.preview-image:hover {
+  border-color: #8e8ac1;
+}
+
+.change-text {
+  color: #c0bde8;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.change-text:hover {
+  text-decoration: underline;
+}
+
+/* --- Labels and Inputs --- */
+label {
+  color: #c0bde8;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  background-color: #201d3a;
+  border: 1px solid #5a5585;
+  border-radius: 8px;
+  padding: 12px 15px;
+  margin-bottom: 1.5rem; /* Add more space between fields */
+  color: #ffffff;
+  font-size: 1rem;
+  font-family: 'Kanit', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #8e8ac1;
+  box-shadow: 0 0 8px rgba(142, 138, 193, 0.4);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* --- Submit Button --- */
+button[type="submit"] {
+  background-color: #7f5af0; /* Purple accent */
+  color: white;
+  padding: 14px 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  font-family: 'Kanit', sans-serif;
+}
+
+button[type="submit"]:hover {
+  background-color: #6a49d8;
+}
+
+button[type="submit"]:active {
+  transform: scale(0.98);
+}

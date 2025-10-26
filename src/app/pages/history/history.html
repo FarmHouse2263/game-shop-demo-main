@@ -1,0 +1,21 @@
+<div class="history-page">
+  <button (click)="goBack()">⬅ Back</button>
+
+  <h2>ประวัติการเติมเงิน</h2>
+  <ul>
+    <li *ngFor="let topup of topupHistory">
+      วันที่: {{ topup.createdAt?.toDate() | date:'d MMM yyyy HH:mm' }} 
+      - จำนวน: {{ topup.amount }} บาท
+    </li>
+  </ul>
+
+  <h2>ประวัติการซื้อเกม</h2>
+  <ul>
+  <li *ngFor="let purchase of purchaseHistory">
+    วันที่: {{ purchase.purchasedAt?.toDate() | date:'d MMM yyyy HH:mm' }} 
+    - เกม: {{ purchase.gameTitle }} 
+    - ราคา: {{ purchase.price }} บาท
+  </li>
+</ul>
+
+</div>

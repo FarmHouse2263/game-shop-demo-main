@@ -1,0 +1,34 @@
+<div class="topup-page-container">
+
+  <!-- User Info -->
+  <section class="user-info-bar">
+    <div class="user-avatar-group">
+      <div class="avatar-box">
+        <img [src]="profileUrl || 'assets/default-avatar.png'" alt="Profile" />
+      </div>
+      <div class="user-details">
+        <h2>{{ user.name || 'ผู้ใช้' }}</h2>
+        <p>เงินคงเหลือ : <strong class="balance">{{ user.balance || 0 }} บาท</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TopUp Form -->
+  <main class="topup-content-box">
+    <h2>เติมเงิน</h2>
+
+    <div class="amount-input-group">
+      <label for="amount">จำนวนที่ต้องการเติม</label>
+      <input id="amount" type="number" [(ngModel)]="amount" placeholder="0.00" min="1" />
+    </div>
+
+    <div class="preset-amounts">
+      <button type="button" *ngFor="let preset of presets" (click)="selectAmount(preset)">
+        {{ preset }} บาท
+      </button>
+    </div>
+
+    <button class="submit-btn" (click)="addMoney()">ดำเนินการชำระเงิน</button>
+  </main>
+
+</div>

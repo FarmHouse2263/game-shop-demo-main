@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Shop</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="https://raw.githubusercontent.com/FarmHouse2263/imageGameShop/refs/heads/main/Xbox%20Controller.png" alt>
+                </div>
+                <h1>GAME SHOP</h1>
+            </div>
+            
+            <div class="nav-buttons">
+                <a class="btn-login" href="/login">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3"></path>
+                    </svg>
+                    เข้าสู่ระบบ
+                </a>
+                <a class="btn-register" href="/register">
+                    สมัครสมาชิก
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="games-grid">
+  <div class="game-card" *ngFor="let game of games$ | async">
+    <img class="game-image" [src]="game.imageUrl" [alt]="game.title">
+  </div>
+</div>
+
+    </main>
+</body>
+</html>

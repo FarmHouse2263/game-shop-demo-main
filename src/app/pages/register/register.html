@@ -1,0 +1,38 @@
+<div class="register-page">
+  <div class="header">
+    <h1>GAME SHOP</h1>
+  </div>
+
+  <div class="register-box">
+    <h2>REGISTER</h2>
+
+    <div class="profile-box">
+      <div class="profile-image" (click)="fileInput.click()">
+        <img [src]="profileUrl || 'assets/controller.png'" alt="profile" />
+      </div>
+
+
+      <a class="change-text" (click)="fileInput.click()">Change profile</a>
+
+      <input
+        type="file"
+        #fileInput
+        accept="image/*"
+        hidden
+        (change)="onFileSelected($event)"
+      />
+    </div>
+
+    <form (ngSubmit)="register()" #regForm="ngForm">
+      <input type="text" [(ngModel)]="name" name="name" placeholder="username" required />
+      <input type="email" [(ngModel)]="email" name="email" placeholder="email@domain.com" required />
+      <input type="password" [(ngModel)]="password" name="password" placeholder="password" required />
+      <input type="password" placeholder="confirm password" />
+      <button type="submit" [disabled]="regForm.invalid">Sign up</button>
+    </form>
+
+    <p class="login-link">
+      Do you have any account ? <a href="#">Login Here</a>
+    </p>
+  </div>
+</div>

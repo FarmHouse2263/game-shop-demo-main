@@ -1,0 +1,48 @@
+<header>
+  <div class="header-container">
+    <div class="logo">
+      <img src="https://raw.githubusercontent.com/FarmHouse2263/imageGameShop/refs/heads/main/Xbox%20Controller.png" alt="Game Controller">
+      <h1>GAME SHOP</h1>
+    </div>
+  
+    <div class="profile-section">
+      <span class="profile-label">คลังเกม</span>
+      
+     
+    </div>
+  </div>
+</header>
+
+<body>
+  <div class="full-screen-container">  
+    <div class="profile-page">
+      <!-- <div class="header">
+        <button class="back-btn" (click)="goBack()">⬅ Back</button>
+        <h1>MY PROFILE</h1>
+      </div> -->
+
+      <div class="profile-box">
+        <div class="profile-image" (click)="fileInput.click()">
+          <img alt="Profile" [src]="profileUrl || 'assets/default-avatar.png'">
+        </div>
+        <p class="change-text" (click)="fileInput.click()">Change profile</p>
+        <input type="file" #fileInput accept="image/*" hidden (change)="onFileSelected($event)">
+
+        <form (ngSubmit)="saveProfile()" #profileForm="ngForm">
+          <input name="email" type="email" [(ngModel)]="user.email" placeholder="Email" required>
+          <input name="name" type="text" [(ngModel)]="user.name" placeholder="Name" required>
+          <input name="tel" type="text" [(ngModel)]="user.tel" placeholder="Phone">
+          <textarea name="address" [(ngModel)]="user.address" placeholder="Address"></textarea>
+
+          <div class="balance-box">
+            <p>💰 ยอดเงินของคุณ: <strong>{{ user.balance || 0 }} บาท</strong></p>
+          </div>
+          
+          <button class="history-btn" type="button" (click)="goToHistory()">ประวัติการเติมเงิน / ซื้อเกม</button>
+          <button type="submit" [disabled]="profileForm.invalid">Save Changes</button>
+          <button class="topup-btn" type="button" (click)="goToTopUp()">เติมเงิน</button>
+        </form>
+      </div>
+    </div>
+    
+  </div> </body>
